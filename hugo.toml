@@ -1,0 +1,19 @@
+baseURL = 'https://mc-mineserver.de/'
+languageCode = 'en-us'
+title = 'McMineserver'
+copyright = 'McMineserver'
+timezone = 'Europe/Berlin'
+
+disableKinds = ["RSS", "taxonomy", "term"]
+disableHugoGeneratorInject = true
+enableRobotsTXT = true
+
+[sitemap]
+  changeFreq = 'monthly'
+  priority = 1
+
+[minify]
+  minifyOutput = true
+  
+  [minify.tdewolff.html]
+    keepQuotes = true
