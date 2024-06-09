@@ -1,2 +1,3 @@
 # mcmineserver-2024
-2024 McMineserver website built with Hugo
+
+[![CI/CD](https://github.com/DerLev/mcmineserver-2024/actions/workflows/integration-deployment.yml/badge.svg?branch=main&event=push)](https://github.com/DerLev/mcmineserver-2024/actions/workflows/integration-deployment.yml)
