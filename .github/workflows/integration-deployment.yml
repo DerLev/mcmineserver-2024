@@ -71,6 +71,8 @@ jobs:
         run: yarn build
       - name: Build Hugo Site
         run: hugo --gc
+      - name: Add Cloudflare Pages config
+        run: ./add-cf-pages-config.sh
       - name: Deploy Site on Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
