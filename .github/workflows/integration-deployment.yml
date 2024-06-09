@@ -1,0 +1,81 @@
+name: CI/CD
+on:
+  push:
+    branches:
+      - 'main'
+
+env:
+  HUGO_VERSION: 0.125.3
+
+jobs:
+  lint-typecheck:
+    name: Lint & Type Check
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: read
+      contents: read
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Setup Nodejs Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+      - name: Lint
+        run: yarn lint:nofix --output-file eslint_report.json --format json
+        continue-on-error: true
+      - name: Type Check
+        run: yarn tsc --noEmit > typescript.log
+        continue-on-error: true
+      - name: Annotate Code
+        uses: DerLev/eslint-annotations@v2
+        with:
+          eslint-report: eslint_report.json
+          typescript-log: typescript.log
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          error-on-warn: true
+          status-check-name: Annotations
+          fail-in-pr: false
+          add-notice-with-url: false
+  
+  build-deploy:
+    name: Build & Deploy Site on Cloudflare Pages
+    runs-on: ubuntu-latest
+    needs: [lint-typecheck]
+    permissions:
+      contents: read
+    environment: Production
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        # Add below if using enableGitInfo in Hugo
+        # with:
+        #   fetch-depth: 0
+        #   fetch-tags: false
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_extended_${{ env.HUGO_VERSION }}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Setup Nodejs Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+      - name: Install Yarn Dependencies
+        run: yarn --frozen-lockfile
+      - name: Build React Client Components
+        run: yarn build
+      - name: Build Hugo Site
+        run: hugo --gc
+      - name: Deploy Site on Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
+          accountId: 281d074793c64ec462cabe65a358f3be
+          projectName: mcmineserver
+          directory: public/
+          branch: main
