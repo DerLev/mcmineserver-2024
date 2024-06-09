@@ -2,11 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+  @apply bg-primary text-gray-100;
+}
+
 html {
   overflow: hidden;
   height: 100%;
 }
 
 body {
-  @apply font-body antialiased scroll-smooth h-full overflow-y-scroll;
+  @apply font-body antialiased scroll-smooth h-full overflow-y-scroll text-gray-100 bg-gray-900;
+}
+
+.content-wrapper {
+  @apply flex flex-col items-stretch h-full;
+}
+
+@import './navbar.scss';
+@import './footer.scss';
+
+main {
+  @apply w-full max-w-5xl mx-auto grow relative;
+
+  a:not(.no-default) {
+    @apply text-gray-300 hover:text-gray-900 transition relative;
+
+    &:before {
+      content: "";
+      z-index: -1;
+      @apply bg-gray-300 absolute left-0 right-0 bottom-0 h-0.5 hover:h-full transition-all;
+    }
+  }
+}
+
+.divider {
+  @apply h-0.5 bg-gray-500 rounded-full w-24 mb-4;
 }

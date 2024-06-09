@@ -6,8 +6,8 @@ const syncToHugo = () => {
   return {
     name: 'syncToHugo',
     closeBundle: async () => {
-      const svelteBuild = './static/client'
-      const assets = await readdir(svelteBuild)
+      const reactBuild = './static/client'
+      const assets = await readdir(reactBuild)
       const js = assets.filter((name) =>
         name.match(/(index.)(?!.*?esm)(?!.*?css).*\w+/),
       )[0]

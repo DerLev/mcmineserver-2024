@@ -1,5 +1,11 @@
+{{ define "header" }}
+  {{ partial "navbar" }}
+{{ end }}
 {{ define "main" }}
   <main>
     {{ .Content }}
   </main>
+{{ end }}
+{{ define "footer" }}
+  {{ partial "footer" }}
 {{ end }}

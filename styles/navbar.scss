@@ -1,0 +1,23 @@
+nav {
+  @apply flex justify-between items-center px-6 py-3 my-3 md:px-8 md:my-5 z-50 w-full max-w-6xl mx-auto grow-0;
+
+  .nav-main {
+    @apply flex items-center gap-4 py-1 px-1.5 rounded-lg hover:bg-gray-800 transition;
+
+    .nav-main-img {
+      @apply h-12 w-auto;
+    }
+
+    span {
+      @apply text-2xl font-semibold hidden md:block;
+    }
+  }
+
+  .nav-right {
+    @apply flex items-center gap-6 md:gap-10 font-display;
+
+    a {
+      @apply font-semibold text-gray-300 hover:text-gray-100 transition text-xl hover:scale-105 transform;
+    }
+  }
+}
