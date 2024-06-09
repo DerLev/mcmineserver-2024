@@ -1,5 +1,5 @@
 footer {
-  @apply w-full max-w-5xl mx-auto flex flex-col md:flex-row md:justify-between items-center p-4 mb-6 gap-2 bg-gray-950 rounded-xl mt-8 grow-0 shadow-lg font-display;
+  @apply w-full max-w-5xl mx-auto flex flex-col md:flex-row-reverse md:justify-between items-center p-4 mb-6 gap-2 bg-gray-950 rounded-xl mt-8 grow-0 shadow-lg font-display;
 
   .footer-links {
     @apply flex items-center;

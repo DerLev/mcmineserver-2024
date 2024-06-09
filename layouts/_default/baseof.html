@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ .Page.Title }}</title>
+    <title>{{ if eq .Page.Title .Site.Title }}{{ .Page.Title }}{{ else }}{{ .Page.Title }} – {{ .Site.Title }}{{ end }}</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     {{/*  favicons  */}}
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any">
