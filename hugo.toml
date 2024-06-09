@@ -8,6 +8,17 @@ disableKinds = ["RSS", "taxonomy", "term"]
 disableHugoGeneratorInject = true
 enableRobotsTXT = true
 
+[mediaTypes]
+  [mediaTypes."text/droplist"]
+    suffixes = ["droplist"]
+
+[outputFormats.droplist]
+  mediatype = "text/droplist"
+  isPlainText = true
+
+[outputs]
+  page = ["HTML", "droplist"]
+
 [sitemap]
   changeFreq = 'monthly'
   priority = 1
