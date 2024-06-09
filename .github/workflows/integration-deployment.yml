@@ -79,3 +79,4 @@ jobs:
           projectName: mcmineserver
           directory: public/
           branch: main
+          wranglerVersion: '3'
