@@ -2,4 +2,4 @@ https://:project.pages.dev/*
   X-Robots-Tag: noindex, nofollow
 
 /*
-  Content-Security-Policy: script-src 'self'; style-src 'self' https://fonts.googleapis.com 'sha256-1GeD51GjihuQuCjy5ksrpPdRZnsKlfZRgWOWtArRCl8='; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; default-src 'self'
+  Content-Security-Policy: script-src 'self' https://static.cloudflareinsights.com; style-src 'self' https://fonts.googleapis.com 'sha256-1GeD51GjihuQuCjy5ksrpPdRZnsKlfZRgWOWtArRCl8='; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; default-src 'self'
