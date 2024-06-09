@@ -75,8 +75,8 @@ jobs:
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
-          accountId: 281d074793c64ec462cabe65a358f3be
-          projectName: mcmineserver
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }}
           directory: public/
           branch: main
           wranglerVersion: '3'
