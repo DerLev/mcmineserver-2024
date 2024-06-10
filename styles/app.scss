@@ -15,6 +15,10 @@ body {
   @apply font-body antialiased scroll-smooth h-full overflow-y-scroll text-gray-100 bg-gray-900;
 }
 
+*:focus-visible {
+  @apply outline-none ring ring-blue-500 ring-offset-1 ring-offset-blue-400;
+}
+
 .content-wrapper {
   @apply flex flex-col items-stretch h-full;
 }
@@ -23,7 +27,7 @@ body {
 @import './footer.scss';
 
 main {
-  @apply w-full max-w-5xl mx-auto grow relative;
+  @apply w-full max-w-5xl mx-auto grow relative px-6;
 
   a:not(.no-default) {
     @apply text-gray-300 hover:text-gray-900 transition relative;

@@ -14,7 +14,7 @@ nav {
   }
 
   .nav-right {
-    @apply flex items-center gap-6 md:gap-10 font-display;
+    @apply flex items-center gap-6 md:gap-10 font-display mr-1.5;
 
     a {
       @apply font-semibold text-gray-300 hover:text-gray-100 transition text-xl hover:scale-105 transform;
